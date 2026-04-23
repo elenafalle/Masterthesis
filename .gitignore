@@ -11,3 +11,5 @@ __pycache__/
 venv/
 *.csv
 nemo_manifests/
+.claude/
+*.png
