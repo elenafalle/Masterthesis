@@ -1,0 +1,13 @@
+*.wav
+*.mp3
+*.webm
+*.nemo
+results/
+aug_audio/
+all_voxtral/
+all_elevenlabs/
+__pycache__/
+*.pyc
+venv/
+*.csv
+nemo_manifests/
