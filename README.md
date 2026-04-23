@@ -28,9 +28,9 @@ The experimental pipeline follows five structured stages:
 ## Repository Structure
 
 ```
-├── DialektDataset/        # Stage 3 — Self-created dialect dataset (RQ1 & RQ2)
 ├── ElevenLabs/            # Stage 2 — Quality check for ElevenLabs synthetic data
 ├── Voxtral/               # Stage 2 — Quality check for Voxtral synthetic data
+├── DialektDataset/        # Stage 3 — Self-created dialect dataset (RQ1 & RQ2)
 ├── ReferenceDataset/      # Stage 4 — Reference dataset evaluation (MultiMed)
 ├── combined/              # Stage 5 — Combined dataset experiments (RQ3)
 └── README.md
