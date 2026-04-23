@@ -1,0 +1,71 @@
+# DialektDataset — Stage 3: Self-created Dialect Dataset
+
+This folder contains the pipeline for **Stage 3** of the evaluation procedure, corresponding to **RQ1 and RQ2** of the thesis.
+
+---
+
+## What happens here
+
+Both models (Whisper large-v3 and Parakeet TDT 0.6B v3) are evaluated on the self-created Austrian dialect dataset in two configurations:
+- **Baseline** — pretrained models without fine-tuning
+- **Fine-tuned** — models adapted using domain-specific dialect data (LoRA for Whisper, LayerNorm for Parakeet)
+
+In addition to WER, an error clustering analysis based on BERTScore is conducted to categorize transcription errors by clinical severity (massive error / medical error / acceptable).
+
+---
+
+## Data Structure
+
+```
+DialektDataset/
+├── train/
+│   ├── metadata.csv
+│   └── audio/
+├── eval/
+│   ├── metadata.csv
+│   └── audio/
+├── test/
+│   ├── metadata.csv
+│   └── audio/
+├── src/
+└── pipeline.py
+```
+
+---
+
+## Usage
+
+```bash
+# Run full pipeline (Steps 1-8)
+python pipeline.py
+
+# Baseline only
+python pipeline.py --step 1 2
+
+# Fine-tuning only
+python pipeline.py --step 3 4
+
+# Evaluation only
+python pipeline.py --step 5 6
+
+# Error clustering only
+python pipeline.py --step 7
+
+# Continue existing run
+python pipeline.py --step 7 --run-dir results/run_xyz
+```
+
+---
+
+## Pipeline Steps
+
+| Step | Description |
+|------|-------------|
+| 1 | Baseline Whisper evaluation |
+| 2 | Baseline Parakeet evaluation |
+| 3 | Fine-tune Whisper (LoRA) |
+| 4 | Fine-tune Parakeet (LayerNorm) |
+| 5 | Evaluate fine-tuned Whisper |
+| 6 | Evaluate fine-tuned Parakeet |
+| 7 | Error clustering (BERTScore) |
+| 8 | WER breakdown (Sub / Del / Ins) |
