@@ -17,22 +17,23 @@ The experimental pipeline follows five structured stages:
 
 | Stage | Description | Folder |
 |-------|-------------|--------|
-| 1 | Audio quality assessment (SNR, RMS filtering) | `DialektDataset/`, `ElevenLabs/`, `Voxtral/` |
-| 2 | Baseline WER quality check for synthetic datasets | `ElevenLabs/`, `Voxtral/` |
-| 3 | Self-created dialect dataset evaluation (baseline + fine-tuned) | `DialektDataset/` |
-| 4 | Reference dataset evaluation (baseline + fine-tuned) | `ReferenceDataset/` |
-| 5 | Combined dataset evaluation (augmentation with synthetic data) | `combined/` |
+| 1 | Audio quality assessment (SNR, RMS filtering) | `01_AudioQuality/` |
+| 2 | Baseline WER quality check for synthetic datasets | `02_ElevenLabs/`, `02_Voxtral/` |
+| 3 | Self-created dialect dataset evaluation (baseline + fine-tuned) | `03_DialektDataset/` |
+| 4 | Reference dataset evaluation (baseline + fine-tuned) | `04_ReferenceDataset/` |
+| 5 | Combined dataset evaluation (augmentation with synthetic data) | `05_Combined/` |
 
 ---
 
 ## Repository Structure
 
 ```
-├── ElevenLabs/            # Stage 2 — Quality check for ElevenLabs synthetic data
-├── Voxtral/               # Stage 2 — Quality check for Voxtral synthetic data
-├── DialektDataset/        # Stage 3 — Self-created dialect dataset (RQ1 & RQ2)
-├── ReferenceDataset/      # Stage 4 — Reference dataset evaluation (MultiMed)
-├── combined/              # Stage 5 — Combined dataset experiments (RQ3)
+├── 01_AudioQuality/       # Stage 1 — Audio quality assessment scripts
+├── 02_ElevenLabs/         # Stage 2 — Quality check for ElevenLabs synthetic data
+├── 02_Voxtral/            # Stage 2 — Quality check for Voxtral synthetic data
+├── 03_DialektDataset/     # Stage 3 — Self-created dialect dataset (RQ1 & RQ2)
+├── 04_ReferenceDataset/   # Stage 4 — Reference dataset evaluation (MultiMed)
+├── 05_Combined/           # Stage 5 — Combined dataset experiments (RQ3)
 └── README.md
 ```
 
@@ -56,20 +57,30 @@ pip install torch transformers peft jiwer bert-score soundfile librosa numpy pan
 ## Recommended Execution Order
 
 ```bash
-# Stage 2: Quality check synthetic datasets
-cd ElevenLabs && python pipeline_quality_check.py --dataset elevenlabs
-cd Voxtral    && python pipeline_quality_check.py --dataset voxtral
+# Stage 1: Audio quality check
+cd 01_AudioQuality
+python analyse_dataset.py          # self-created dataset
+python analyze_elevenlabs.py       # ElevenLabs dataset
+python analyse_voxtral.py          # Voxtral dataset
 
-# Stage 3: Dialect dataset
-cd DialektDataset && python pipeline.py
+# Stage 2: Baseline WER quality check
+cd 02_ElevenLabs && python pipeline_quality_check.py --dataset elevenlabs
+cd 02_Voxtral    && python pipeline_quality_check.py --dataset voxtral
+
+# Stage 3: Dialect dataset (RQ1 & RQ2)
+cd 03_DialektDataset && python pipeline.py
 
 # Stage 4: Reference dataset
-cd ReferenceDataset && python pipeline.py
+cd 04_ReferenceDataset && python pipeline.py
 
-# Stage 5: Combined
-cd combined && python pipeline_rq3.py --config voxtral
-cd combined && python pipeline_rq3.py --config elevenlabs
-cd combined && python pipeline_rq3.py --config combined
+# Stage 5: Combined dataset (RQ3)
+cd 05_Combined
+python -m src.merge_datasets --config voxtral
+python -m src.merge_datasets --config elevenlabs
+python -m src.merge_datasets --config combined
+python pipeline_rq3.py --config voxtral
+python pipeline_rq3.py --config elevenlabs
+python pipeline_rq3.py --config combined
 ```
 
 ---
