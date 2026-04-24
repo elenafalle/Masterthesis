@@ -7,7 +7,7 @@ import matplotlib.ticker as mticker
 from pathlib import Path
 from scipy import stats
 
-AUDIO_DIR = "./audio"  # ← hier deinen Pfad zum Audio-Ordner anpassen
+AUDIO_DIR = Path(__file__).parent / "audio"  # ← hier deinen Pfad zum Audio-Ordner anpassen
 
 # ─── 1. Daten laden & flach machen ───────────────────────────────────────────
 
@@ -289,10 +289,6 @@ try:
             Path(tmp_path).unlink(missing_ok=True)
 
             # Lautstärke (RMS in dBFS)
-            # RMS misst die rohe Signalenergie – für ASR relevanter als
-            # wahrnehmungsgewichtetes LUFS, da ASR-Modelle auf dem
-            # ungewichteten Rohsignal operieren
-            # (vgl. Tomanek et al., 2024, JSLHR)
             rms = librosa.feature.rms(y=y)[0]
             rms_db = librosa.amplitude_to_db(rms.mean())
 
