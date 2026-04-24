@@ -7,11 +7,12 @@ import matplotlib.ticker as mticker
 from pathlib import Path
 from scipy import stats
 
+BASE_DIR = Path(__file__).parent.resolve()
 AUDIO_DIR = Path(__file__).parent / "audio"  # ← hier deinen Pfad zum Audio-Ordner anpassen
 
 # ─── 1. Daten laden & flach machen ───────────────────────────────────────────
 
-with open("dataset_export.json") as f:
+with open(BASE_DIR / "dataset_export.json") as f:
     data = json.load(f)
 
 rows = []
