@@ -26,12 +26,6 @@ ElevenLabs/
 ## Usage
 
 ```bash
-# Both models
-python pipeline_quality_check.py --dataset elevenlabs --model both
+python pipeline_quality_check.py --dataset elevenlabs 
 
-# Whisper only
-python pipeline_quality_check.py --dataset elevenlabs --model whisper
-
-# Parakeet only
-python pipeline_quality_check.py --dataset elevenlabs --model parakeet
 ```
