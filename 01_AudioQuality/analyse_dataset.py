@@ -1,9 +1,3 @@
-"""
-Explorative Datenanalyse – dataset_export.json
-Führe dieses Skript aus: python analyse_dataset.py
-Voraussetzungen: pip install pandas scipy matplotlib librosa
-"""
-
 import json
 import subprocess
 import pandas as pd
@@ -211,7 +205,7 @@ for i, (_, row) in enumerate(df.iterrows(), 1):
         continue
 
     result = subprocess.run(
-        ["/opt/homebrew/bin/ffmpeg", "-v", "error", "-i", str(filepath), "-f", "null", "-"],
+        ["ffmpeg", "-v", "error", "-i", str(filepath), "-f", "null", "-"],
         capture_output=True, text=True
     )
     errors = [l for l in result.stderr.splitlines()
@@ -256,8 +250,8 @@ else:
 #
 #   Kriterium               Schwellwert   Quelle
 #   ──────────────────────────────────────────────────────────────────
-#   Loudness (RMS) zu laut  > -10 dBFS   validiert anhand einer representativen Stichprobe
-#   Loudness (RMS) zu leise < -40 dBFS   validiert anhand einer representativen Stichprobe
+#   Loudness (RMS) zu laut  > -10 dBFS   validiert anhand einer repräsentativen Stichprobe
+#   Loudness (RMS) zu leise < -40 dBFS   validiert anhand einer repräsentativen Stichprobe
 #   Background Noise (SNR)  < 10 dB      Liu et al. (2020), Applied Acoustics
 
 print("\n" + "=" * 60)
@@ -286,7 +280,7 @@ try:
             with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
                 tmp_path = tmp.name
             subprocess.run(
-                ["/opt/homebrew/bin/ffmpeg", "-y", "-i", str(filepath),
+                ["ffmpeg", "-y", "-i", str(filepath),
                  "-ar", "16000", "-ac", "1", "-f", "wav", tmp_path],
                 capture_output=True
             )
