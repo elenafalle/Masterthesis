@@ -1,3 +1,24 @@
+"""
+Explorative Datenanalyse – Self-created Dialect Dataset
+Führe dieses Skript aus: python analyse_dataset.py
+
+Erwartet folgende Ordnerstruktur:
+  self-recorded-dialektdataset/
+    analyse_dataset.py     ← dieses Skript
+    dataset_export.json    ← Exportdatei aus der Aufnahme-App
+    audio/                 ← Audiodateien (.wav)
+
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install pandas scipy matplotlib librosa
+
+Zusätzlich wird ffmpeg benötigt:
+    Mac:   brew install ffmpeg
+    Linux: sudo apt install ffmpeg
+"""
+
 import json
 import subprocess
 import pandas as pd
