@@ -4,12 +4,21 @@ Führe dieses Skript aus: python analyse_voxtral.py
 
 Erwartet folgende Ordnerstruktur:
   voxtral/
-    audio/                        ← Audiodateien
+    analyse_voxtral.py        ← dieses Skript
+    audio/                    ← Audiodateien (.wav)
     by_gender/
       metadata_female.json
       metadata_male.json
 
-Voraussetzungen: pip install pandas scipy matplotlib librosa
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install pandas scipy matplotlib librosa
+
+Zusätzlich wird ffmpeg benötigt:
+    Mac:   brew install ffmpeg
+    Linux: sudo apt install ffmpeg
 """
 
 import json
