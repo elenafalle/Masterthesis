@@ -44,6 +44,7 @@ Since synthetically generated data contains no real environmental noise, the SNR
 
 ```bash
 # Self-created dataset
+cd self-recorded-dialektdataset/
 python analyse_dataset.py
 
 # ElevenLabs dataset
