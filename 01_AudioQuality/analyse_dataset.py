@@ -256,8 +256,8 @@ else:
 #
 #   Kriterium               Schwellwert   Quelle
 #   ──────────────────────────────────────────────────────────────────
-#   Loudness (RMS) zu laut  > -10 dBFS   EBU R128 (2023); ITU-R BS.1770-5 (2023)
-#   Loudness (RMS) zu leise < -40 dBFS   EBU R128 (2023); ITU-R BS.1770-5 (2023)
+#   Loudness (RMS) zu laut  > -10 dBFS   validiert anhand einer representativen Stichprobe
+#   Loudness (RMS) zu leise < -40 dBFS   validiert anhand einer representativen Stichprobe
 #   Background Noise (SNR)  < 10 dB      Liu et al. (2020), Applied Acoustics
 
 print("\n" + "=" * 60)
