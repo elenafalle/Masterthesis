@@ -236,8 +236,8 @@ else:
 #
 #   Kriterium               Schwellwert   Quelle
 #   ──────────────────────────────────────────────────────────────────
-#   Loudness (RMS) zu laut  > -10 dBFS   empirisch validiert durch eine represäntative Stichprobe
-#   Loudness (RMS) zu leise < -40 dBFS   empirisch validiert durch eine represäntative Stichprobe
+#   Loudness (RMS) zu laut  > -10 dBFS   empirisch validiert durch eine repräsentative Stichprobe
+#   Loudness (RMS) zu leise < -40 dBFS   empirisch validiert durch eine repräsentative Stichprobe
 #   Background Noise (SNR)  < 0 dB       Kein echtes Hintergrundrauschen bei TTS-Daten;
 #                                            Schwellwert erfasst nur defekte Dateien
 
