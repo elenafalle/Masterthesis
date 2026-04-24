@@ -190,7 +190,7 @@ for i, (_, row) in enumerate(df.iterrows(), 1):
         continue
 
     result = subprocess.run(
-        ["/opt/homebrew/bin/ffmpeg", "-v", "error", "-i", str(filepath), "-f", "null", "-"],
+        ["ffmpeg", "-v", "error", "-i", str(filepath), "-f", "null", "-"],
         capture_output=True, text=True
     )
     errors = [l for l in result.stderr.splitlines()
@@ -236,8 +236,8 @@ else:
 #
 #   Kriterium               Schwellwert   Quelle
 #   ──────────────────────────────────────────────────────────────────
-#   Loudness (RMS) zu laut  > -10 dBFS   EBU R128 (2023); ITU-R BS.1770-5 (2023)
-#   Loudness (RMS) zu leise < -40 dBFS   EBU R128 (2023); ITU-R BS.1770-5 (2023)
+#   Loudness (RMS) zu laut  > -10 dBFS   empirisch validiert durch eine represäntative Stichprobe
+#   Loudness (RMS) zu leise < -40 dBFS   empirisch validiert durch eine represäntative Stichprobe
 #   Background Noise (SNR)  < 0 dB       Kein echtes Hintergrundrauschen bei TTS-Daten;
 #                                            Schwellwert erfasst nur defekte Dateien
 
@@ -267,7 +267,7 @@ try:
             with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
                 tmp_path = tmp.name
             subprocess.run(
-                ["/opt/homebrew/bin/ffmpeg", "-y", "-i", str(filepath),
+                ["ffmpeg", "-y", "-i", str(filepath),
                  "-ar", "16000", "-ac", "1", "-f", "wav", tmp_path],
                 capture_output=True
             )
