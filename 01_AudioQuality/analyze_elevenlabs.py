@@ -4,10 +4,19 @@ Führe dieses Skript aus: python analyse_elevenlabs.py
 
 Erwartet folgende Ordnerstruktur:
   elevenlabs/
-    audio/          ← Audiodateien (.mp3)
-    metadata.csv    ← file_name, text
+    analyse_elevenlabs.py     ← dieses Skript
+    metadata.csv              ← file_name, text
+    audio/                    ← Audiodateien (.mp3)
 
-Voraussetzungen: pip install pandas scipy matplotlib librosa
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install pandas scipy matplotlib librosa
+
+Zusätzlich wird ffmpeg benötigt:
+    Mac:   brew install ffmpeg
+    Linux: sudo apt install ffmpeg
 """
 
 import subprocess
