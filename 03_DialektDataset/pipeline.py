@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Pipeline: Whisper & Parakeet Evaluation + Fine-Tuning + Error Clustering + WER Breakdown
 
