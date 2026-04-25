@@ -1,9 +1,26 @@
-#!/usr/bin/env python3
 """
 Pipeline: Whisper & Parakeet Evaluation + Fine-Tuning
+Führe dieses Skript aus: python pipeline.py
 
-Jeder Lauf erzeugt einen eigenen Ordner unter results/ mit Timestamp,
-sodass alle Ergebnisse, Modelle und Transkriptionen nachvollziehbar bleiben.
+Erwartet folgende Ordnerstruktur:
+  ReferenceDataset/
+    pipeline.py               ← dieses Skript
+    src/                      ← Hilfsfunktionen
+    train/
+        metadata.csv
+        audio/
+    eval/
+        metadata.csv
+        audio/
+    test/
+        metadata.csv
+        audio/
+
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning bitsandbytes
 
 Nutzung:
     python pipeline.py                   # Alle 6 Schritte
