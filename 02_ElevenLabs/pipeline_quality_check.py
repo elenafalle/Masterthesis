@@ -1,13 +1,20 @@
-#!/usr/bin/env python3
 """
 Pipeline: Qualitätscheck für synthetische Datensätze (Baseline WER only)
+Führe dieses Skript aus: python pipeline_quality_check.py --dataset elevenlabs
 
-Berechnet nur die Baseline WER für ElevenLabs.
-Kein Fine-tuning, kein Error Clustering – nur Datenqualitätsprüfung.
+Erwartet folgende Ordnerstruktur:
+  ElevenLabs/
+    pipeline_quality_check.py     ← dieses Skript
+    src/                          ← Hilfsfunktionen
+    all/                          ← ElevenLabs Datensatz
+        metadata.csv
+        audio/
 
-Nutzung:
-    python pipeline_quality_check.py --dataset elevenlabs
-
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning
 """
 
 import argparse
