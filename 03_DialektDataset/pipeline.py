@@ -20,7 +20,7 @@ Venv erstellen und Voraussetzungen installieren:
     python3 -m venv venv
     source venv/bin/activate          # Mac/Linux
     venv\\Scripts\\activate           # Windows
-    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning
+    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning bitsandbytes
 
 Nutzung:
     python pipeline.py                   # Alle 8 Schritte
