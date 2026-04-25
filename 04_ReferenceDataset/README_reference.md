@@ -24,8 +24,7 @@ ReferenceDataset/
 │   ├── metadata.csv
 │   └── audio/
 ├── src/
-├── pipeline.py
-└── pipeline_quality_check.py
+└── pipeline.py
 ```
 
 ---
