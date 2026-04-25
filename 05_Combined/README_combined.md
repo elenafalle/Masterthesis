@@ -33,25 +33,25 @@ combined/
 
 ```bash
 # Step 1: Merge datasets first
-python -m src.merge_datasets --config voxtral
-python -m src.merge_datasets --config elevenlabs
-python -m src.merge_datasets --config combined
+python3 -m src.merge_datasets --config voxtral
+python3 -m src.merge_datasets --config elevenlabs
+python3 -m src.merge_datasets --config combined
 
 # Step 2: Run fine-tuning and evaluation
-python pipeline.py --config voxtral
-python pipeline.py --config elevenlabs
-python pipeline.py --config combined
+python3 pipeline.py --config voxtral
+python3 pipeline.py --config elevenlabs
+python3 pipeline.py --config combined
 
 # Run specific steps only
-python pipeline.py --config voxtral --step 3 4   # fine-tuning only
-python pipeline.py --config voxtral --step 5 6   # evaluation only
-python pipeline.py --config voxtral --step 7     # error clustering only
+python3 pipeline.py --config voxtral --step 3 4   # fine-tuning only
+python3 pipeline.py --config voxtral --step 5 6   # evaluation only
+python3 pipeline.py --config voxtral --step 7     # error clustering only
 
 # Continue existing run
-python pipeline.py --config voxtral --step 7 --run-dir results/run_xyz
+python3 pipeline.py --config voxtral --step 7 --run-dir results/run_xyz
 
 # Visualizations
-python src/plot_rq3.py
-python src/plot_rq3_clustering.py
-python comparison_matrix.py
+python3 src/plot_rq3.py
+python3 src/plot_rq3_clustering.py
+python3 comparison_matrix.py
 ```
