@@ -1,14 +1,38 @@
-#!/usr/bin/env python3
 """
 Pipeline: Whisper & Parakeet Fine-Tuning für RQ3
+Führe dieses Skript aus: python3 pipeline.py --config voxtral
+
+Erwartet folgende Ordnerstruktur:
+  05_Combined/
+    pipeline.py               ← dieses Skript
+    src/                      ← Hilfsfunktionen
+    train/                    ← Self-created Trainingsdaten
+        metadata.csv
+        audio/
+    eval/                     ← Self-created Validierungsdaten
+        metadata.csv
+        audio/
+    test/                     ← Self-created Testdaten
+        metadata.csv
+        audio/
+    all_voxtral/              ← Voxtral synthetische Daten
+        metadata.csv
+        audio/
+    all_elevenlabs/           ← ElevenLabs synthetische Daten
+        metadata.csv
+        audio/
+
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning bitsandbytes
 
 Nutzung:
-    python pipeline.py --config voxtral      # Self-created + Voxtral
-    python pipeline.py --config elevenlabs   # Self-created + ElevenLabs
-    python pipeline.py --config combined     # Self-created + Voxtral + ElevenLabs
-    python pipeline.py --config voxtral --step 3 4      # Nur Fine-Tuning
-    python pipeline.py --config voxtral --step 5 6      # Nur Evaluation
-    python pipeline.py --config voxtral --run-dir results/run_xyz  # Fortsetzen
+    python3 -m src.merge_datasets             # Zuerst Datasets mergen
+    python3 pipeline.py --config voxtral      # Self-created + Voxtral
+    python3 pipeline.py --config elevenlabs   # Self-created + ElevenLabs
+    python3 pipeline.py --config combined     # Self-created + Voxtral + ElevenLabs
 """
 
 import argparse
