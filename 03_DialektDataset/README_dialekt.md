@@ -51,8 +51,11 @@ python3 pipeline.py --step 5 6
 # Error clustering only
 python3 pipeline.py --step 7
 
+# WER Breakdown only
+python3 pipeline.py --step 8
+
 # Continue existing run
-python3 pipeline.py --step 7 --run-dir results/run_xyz
+python3 pipeline.py --step 8 --run-dir results/run_xyz
 ```
 
 ---
