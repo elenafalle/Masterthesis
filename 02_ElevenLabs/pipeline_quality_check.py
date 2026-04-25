@@ -2,15 +2,12 @@
 """
 Pipeline: Qualitätscheck für synthetische Datensätze (Baseline WER only)
 
-Berechnet nur die Baseline WER für Voxtral, ElevenLabs und Reference Dataset.
+Berechnet nur die Baseline WER für ElevenLabs.
 Kein Fine-tuning, kein Error Clustering – nur Datenqualitätsprüfung.
 
 Nutzung:
-    python pipeline_quality_check.py --dataset voxtral
     python pipeline_quality_check.py --dataset elevenlabs
-    python pipeline_quality_check.py --dataset reference
-    python pipeline_quality_check.py --dataset voxtral --model whisper
-    python pipeline_quality_check.py --dataset voxtral --model parakeet
+
 """
 
 import argparse
@@ -21,14 +18,14 @@ from pathlib import Path
 import torch
 
 from src.config import SEED, WHISPER_HPARAMS, PARAKEET_HPARAMS, log
-from src.utils import create_run_dir, log_environment, save_json
+from src.utils import create_run_dir, save_json
 from src import whisper, parakeet
 
 # ---------------------------------------------------------------------------
 # Dataset paths — passe diese an deine Ordnerstruktur an
 # ---------------------------------------------------------------------------
 DATASET_PATHS = {
-    "ElevenLabs":     Path("./all"),
+    "elevenlabs": Path("./all"),
 }
 
 # ---------------------------------------------------------------------------
@@ -64,7 +61,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dataset",
         type=str,
-        choices=["ElevenLabs"],
+        choices=["elevenlabs"],
         required=True,
         help="Datensatz für den Qualitätscheck.",
     )
