@@ -23,13 +23,13 @@ Venv erstellen und Voraussetzungen installieren:
     pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning bitsandbytes
 
 Nutzung:
-    python pipeline.py                   # Alle 8 Schritte
-    python pipeline.py --step 1          # Nur Baseline Whisper
-    python pipeline.py --step 3 4        # Nur Fine-Tuning beider Modelle
-    python pipeline.py --step 7          # Nur Error Clustering
-    python pipeline.py --step 8          # Nur WER Breakdown
-    python pipeline.py --step 7 8        # Error Clustering + WER Breakdown
-    python pipeline.py --run-dir results/run_2026-02-20_143000  # Fortsetzen
+    python3 pipeline.py                   # Alle 8 Schritte
+    python3 pipeline.py --step 1          # Nur Baseline Whisper
+    python3 pipeline.py --step 3 4        # Nur Fine-Tuning beider Modelle
+    python3 pipeline.py --step 7          # Nur Error Clustering
+    python3 pipeline.py --step 8          # Nur WER Breakdown
+    python3 pipeline.py --step 7 8        # Error Clustering + WER Breakdown
+    python3 pipeline.py --run-dir results/run_2026-02-20_143000  # Fortsetzen
 """
 
 import argparse
