@@ -38,17 +38,17 @@ python -m src.merge_datasets --config elevenlabs
 python -m src.merge_datasets --config combined
 
 # Step 2: Run fine-tuning and evaluation
-python pipeline_rq3.py --config voxtral
-python pipeline_rq3.py --config elevenlabs
-python pipeline_rq3.py --config combined
+python pipeline.py --config voxtral
+python pipeline.py --config elevenlabs
+python pipeline.py --config combined
 
 # Run specific steps only
-python pipeline_rq3.py --config voxtral --step 3 4   # fine-tuning only
-python pipeline_rq3.py --config voxtral --step 5 6   # evaluation only
-python pipeline_rq3.py --config voxtral --step 7     # error clustering only
+python pipeline.py --config voxtral --step 3 4   # fine-tuning only
+python pipeline.py --config voxtral --step 5 6   # evaluation only
+python pipeline.py --config voxtral --step 7     # error clustering only
 
 # Continue existing run
-python pipeline_rq3.py --config voxtral --step 7 --run-dir results/run_xyz
+python pipeline.py --config voxtral --step 7 --run-dir results/run_xyz
 
 # Visualizations
 python src/plot_rq3.py
