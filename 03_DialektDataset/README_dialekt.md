@@ -37,22 +37,22 @@ DialektDataset/
 
 ```bash
 # Run full pipeline (Steps 1-8)
-python pipeline.py
+python3 pipeline.py
 
 # Baseline only
-python pipeline.py --step 1 2
+python3 pipeline.py --step 1 2
 
 # Fine-tuning only
-python pipeline.py --step 3 4
+python3 pipeline.py --step 3 4
 
 # Evaluation only
-python pipeline.py --step 5 6
+python3 pipeline.py --step 5 6
 
 # Error clustering only
-python pipeline.py --step 7
+python3 pipeline.py --step 7
 
 # Continue existing run
-python pipeline.py --step 7 --run-dir results/run_xyz
+python3 pipeline.py --step 7 --run-dir results/run_xyz
 ```
 
 ---
