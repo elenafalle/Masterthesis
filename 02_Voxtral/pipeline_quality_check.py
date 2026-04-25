@@ -1,14 +1,21 @@
-#!/usr/bin/env python3
 """
 Pipeline: Qualitätscheck für synthetische Datensätze (Baseline WER only)
+Führe dieses Skript aus: python pipeline_quality_check.py --dataset voxtral
 
-Berechnet nur die Baseline WER für Voxtral, ElevenLabs und Reference Dataset.
-Kein Fine-tuning, kein Error Clustering – nur Datenqualitätsprüfung.
+Erwartet folgende Ordnerstruktur:
+  Voxtral/
+    pipeline_quality_check.py     ← dieses Skript
+    src/                          ← Hilfsfunktionen
+    all/                          ← Voxtral Datensatz
+        metadata.csv
+        audio/
 
-Nutzung:
-    python pipeline_quality_check.py --dataset voxtral
-    python pipeline_quality_check.py --dataset voxtral --model whisper
-    python pipeline_quality_check.py --dataset voxtral --model parakeet
+Venv erstellen und Voraussetzungen installieren:
+    python3 -m venv venv
+    source venv/bin/activate          # Mac/Linux
+    venv\\Scripts\\activate           # Windows
+    pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib nemo_toolkit[asr] hydra-core fiddle cloudpickle lightning
+    
 """
 
 import argparse
