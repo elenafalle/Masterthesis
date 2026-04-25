@@ -26,12 +26,7 @@ Voxtral/
 ## Usage
 
 ```bash
-# Both models
-python pipeline_quality_check.py --dataset voxtral --model both
 
-# Whisper only
-python pipeline_quality_check.py --dataset voxtral --model whisper
+python pipeline_quality_check.py --dataset voxtral
 
-# Parakeet only
-python pipeline_quality_check.py --dataset voxtral --model parakeet
 ```
