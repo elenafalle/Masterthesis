@@ -33,19 +33,19 @@ ReferenceDataset/
 
 ```bash
 # Run full pipeline (baseline + fine-tuning + evaluation)
-python pipeline.py
+python3 pipeline.py
 
 # Baseline only
-python pipeline.py --step 1 2
+python3 pipeline.py --step 1 2
 
 # Fine-tuning only
-python pipeline.py --step 3 4
+python3 pipeline.py --step 3 4
 
 # Evaluation only
-python pipeline.py --step 5 6
+python3 pipeline.py --step 5 6
 
 # Continue existing run
-python pipeline.py --run-dir results/run_xyz
+python3 pipeline.py --run-dir results/run_xyz
 ```
 
 ---
