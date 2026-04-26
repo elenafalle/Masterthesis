@@ -1,6 +1,6 @@
 # Voxtral — Stage 2: Baseline Quality Check
 
-This folder contains the pipeline for **Stage 2** of the evaluation procedure — the baseline WER quality check for the Voxtral synthetic dataset.
+This folder contains the pipeline for **Stage 2** of the evaluation procedure - the baseline WER quality check for the Voxtral synthetic dataset.
 
 ---
 
