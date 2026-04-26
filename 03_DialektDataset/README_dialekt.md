@@ -46,6 +46,8 @@ DialektDataset/
 | `wer_breakdown.py` | WER breakdown by substitutions, deletions and insertions (Step 8) |
 ```
 
+---
+
 ## Usage
 
 ```bash
