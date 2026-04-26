@@ -56,14 +56,19 @@ python3 analyze_elevenlabs.py       # ElevenLabs dataset
 python3 analyse_voxtral.py          # Voxtral dataset
 
 # Stage 2: Baseline WER quality check
-cd 02_ElevenLabs && python3 pipeline_quality_check.py --dataset elevenlabs
-cd 02_Voxtral    && python3 pipeline_quality_check.py --dataset voxtral
+cd 02_ElevenLabs
+python3 pipeline_quality_check.py --dataset elevenlabs
+
+cd 02_Voxtral
+python3 pipeline_quality_check.py --dataset voxtral
 
 # Stage 3: Dialect dataset (RQ1 & RQ2)
-cd 03_DialektDataset && python3 pipeline.py
+cd 03_DialektDataset
+python3 pipeline.py
 
 # Stage 4: Reference dataset
-cd 04_ReferenceDataset && python3 pipeline.py
+cd 04_ReferenceDataset
+python3 pipeline.py
 
 # Stage 5: Combined dataset (RQ3)
 cd 05_Combined
