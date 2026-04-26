@@ -1,4 +1,4 @@
-# 01_AudioQuality — Stage 1: Audio Quality Assessment
+# 01_AudioQuality - Stage 1: Audio Quality Assessment
 
 This folder contains the audio quality analysis scripts for **Stage 1** of the evaluation procedure.
 
@@ -70,7 +70,7 @@ pip install pandas scipy matplotlib librosa
 
 Each script produces the following output files:
 
-- `asr_quality_combined.csv` — RMS and SNR values for all audio files
-- `asr_problematic.csv` — flagged recordings with reason (if any)
-- `aufnahmen_geschlecht.png` — bar chart of recordings by gender
-- `corrupt_audio.csv` — technically defective files (if any)
+- `asr_quality_combined.csv` - RMS and SNR values for all audio files
+- `asr_problematic.csv` - flagged recordings with reason (if any)
+- `aufnahmen_geschlecht.png` - bar chart of recordings by gender
+- `corrupt_audio.csv` - technically defective files (if any)
