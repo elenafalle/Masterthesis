@@ -35,10 +35,11 @@ The experimental pipeline follows five structured stages:
 ├── 04_ReferenceDataset/   # Stage 4 — Reference dataset evaluation (MultiMed)
 ├── 05_Combined/           # Stage 5 — Combined dataset experiments (RQ3)
 └── README.md
+
+Each stage folder contains a dedicated README with detailed instructions on the expected data structure, pipeline steps and usage.
 ```
 
 ---
-
 ## Models
 
 - **Whisper large-v3**: https://huggingface.co/openai/whisper-large-v3
