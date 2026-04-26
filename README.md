@@ -75,9 +75,9 @@ cd 05_Combined
 python3 -m src.merge_datasets --config voxtral
 python3 -m src.merge_datasets --config elevenlabs
 python3 -m src.merge_datasets --config combined
-python3 pipeline_rq3.py --config voxtral
-python3 pipeline_rq3.py --config elevenlabs
-python3 pipeline_rq3.py --config combined
+python3 pipeline.py --config voxtral
+python3 pipeline.py --config elevenlabs
+python3 pipeline.py --config combined
 ```
 
 ---
