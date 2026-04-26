@@ -1,4 +1,4 @@
-# Masterthesis — Dialect-Aware ASR for Medical Emergency Communication
+# Masterthesis - Dialect-Aware ASR for Medical Emergency Communication
 
 **"Creating datasets for domain-specific dialect solutions in automatic speech recognition"**
 Elena Falle, St. Pölten University of Applied Sciences, 2026
@@ -7,7 +7,7 @@ Elena Falle, St. Pölten University of Applied Sciences, 2026
 
 ## Overview
 
-This repository contains all code developed for the master's thesis. The study evaluates the impact of Austrian dialect variation on ASR performance in simulated emergency medical communication using two models — Whisper large-v3 and Parakeet TDT 0.6B v3.
+This repository contains all code developed for the master's thesis. The study evaluates the impact of Austrian dialect variation on ASR performance in simulated emergency medical communication using two models - Whisper large-v3 and Parakeet TDT 0.6B v3.
 
 ---
 
