@@ -46,14 +46,6 @@ The experimental pipeline follows five structured stages:
 
 ---
 
-## Requirements
-
-```bash
-pip install torch transformers peft jiwer bert-score soundfile librosa numpy pandas scipy matplotlib
-```
-
----
-
 ## Recommended Execution Order
 
 ```bash
