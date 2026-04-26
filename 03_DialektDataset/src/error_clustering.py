@@ -1,7 +1,5 @@
 """
-src/error_clustering.py
-=======================
-Error Clustering for medical ASR evaluation.
+Error Clustering
 
 Integrates into the existing pipeline as Step 7.
 Called after fine-tuned model evaluation (Steps 5 / 6).
@@ -14,28 +12,6 @@ Categories:
 Score computed:
     bert_f1   BERTScore using dbmdz/bert-base-german-cased
 
-Motivated by Tobin et al. (2022) and Shor et al. (2023), who demonstrate
-that BERTScore correlates more strongly with human judgements of ASR error
-severity than WER, and that WER fails to distinguish clinically critical
-errors from minor linguistic deviations.
-
-The three-category scheme and BERTScore thresholds (0.75 and 0.92) were
-validated through an inter-rater annotation study in which two raters with
-medical backgrounds independently assessed 38 transcription pairs
-(Cohen's Kappa κ = 0.51). Agreement was highest for massive_error
-(73-91%) and acceptable (78-89%), supporting the validity of both thresholds.
-
-Inputs expected per model:
-    <run_dir>/<model>/baseline/predictions.jsonl
-    <run_dir>/<model>/finetuned/predictions.jsonl
-
-Each predictions.jsonl is a JSONL file (one JSON per line) with at least:
-    {"file_name": "...", "reference": "...", "hypothesis": "...", "wer": 0.0}
-    category defaults to "medical" if not present.
-
-Outputs (written to <out_dir>/):
-    error_clustering.csv
-    error_clustering_summary.json
 """
 
 import csv
