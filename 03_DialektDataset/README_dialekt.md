@@ -30,21 +30,18 @@ DialektDataset/
 ├── src/
 └── pipeline.py
 ```
-
 ---
 
 ## src/ — Helper Functions
 
-``` 
 | File | Description |
 |------|-------------|
 | `config.py` | Paths and hyperparameters |
-| `utils.py` | Audio loading, WER computation, file saving and run directory management |
-| `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
-| `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
+| `utils.py` | Audio loading, WER computation, Input/Output helpers |
+| `whisper.py` | Whisper baseline evaluation |
+| `parakeet.py` | Parakeet baseline evaluation |
 | `error_clustering.py` | BERTScore-based error clustering — classifies transcription errors into massive, medical and acceptable (Step 7) |
 | `wer_breakdown.py` | WER breakdown by substitutions, deletions and insertions (Step 8) |
-```
 
 ---
 
