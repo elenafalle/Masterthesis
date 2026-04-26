@@ -37,7 +37,7 @@ combined/
 | `utils.py` | Audio loading, WER computation, Input/Output helpers |
 | `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
 | `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
-| `error_clustering.py` | BERTScore-based error clustering — classifies transcription errors into massive, medical and acceptable |
+| `error_clustering.py` | BERTScore-based error clustering - classifies transcription errors into massive, medical and acceptable |
 | `merge_datasets.py` | Merges self-created dialect dataset with synthetic data (Voxtral, ElevenLabs) |
 | `plot_rq3.py` | WER comparison chart across all RQ3 configurations |
 | `plot_rq3_clustering.py` | Error clustering stacked bar chart for RQ3 Parakeet configurations |
