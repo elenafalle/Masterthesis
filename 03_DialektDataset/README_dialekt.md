@@ -7,8 +7,8 @@ This folder contains the pipeline for **Stage 3** of the evaluation procedure, c
 ## What happens here
 
 Both models (Whisper large-v3 and Parakeet TDT 0.6B v3) are evaluated on the self-created Austrian dialect dataset in two configurations:
-- **Baseline** — pretrained models without fine-tuning
-- **Fine-tuned** — models adapted using domain-specific dialect data (LoRA for Whisper, LayerNorm for Parakeet)
+- **Baseline** - pretrained models without fine-tuning
+- **Fine-tuned** - models adapted using domain-specific dialect data (LoRA for Whisper, LayerNorm for Parakeet)
 
 In addition to WER, an error clustering analysis based on BERTScore is conducted to categorize transcription errors by clinical severity (massive error / medical error / acceptable).
 
