@@ -1,6 +1,6 @@
 # ReferenceDataset - Stage 4: Reference Dataset Evaluation
 
-This folder contains the pipeline for **Stage 4** of the evaluation procedure — evaluation on the MultiMed reference dataset.
+This folder contains the pipeline for **Stage 4** of the evaluation procedure - evaluation on the MultiMed reference dataset.
 
 ---
 
