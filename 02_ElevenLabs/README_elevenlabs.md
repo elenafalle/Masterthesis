@@ -40,3 +40,14 @@ ElevenLabs/
 python pipeline_quality_check.py --dataset elevenlabs 
 
 ```
+
+---
+
+## Pipeline Steps
+
+| Step | Description |
+|------|-------------|
+| 1 | Baseline Whisper evaluation — computes WER on the full ElevenLabs dataset |
+| 2 | Baseline Parakeet evaluation — computes WER on the full ElevenLabs dataset |
+
+No fine-tuning is performed: this pipeline is used exclusively for data quality assessment.
