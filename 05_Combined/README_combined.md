@@ -63,9 +63,6 @@ python3 pipeline.py --config voxtral
 python3 pipeline.py --config elevenlabs
 python3 pipeline.py --config combined
 
-# Continue existing run
-python3 pipeline.py --config voxtral --step 7 --run-dir results/run_xyz
-
 # Visualizations
 python3 src/plot_rq3.py
 python3 src/plot_rq3_clustering.py
