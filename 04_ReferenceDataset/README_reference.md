@@ -55,8 +55,6 @@ python3 pipeline.py --step 3 4
 # Evaluation only
 python3 pipeline.py --step 5 6
 
-# Continue existing run
-python3 pipeline.py --run-dir results/run_xyz
 ```
 
 ---
