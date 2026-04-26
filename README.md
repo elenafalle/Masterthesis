@@ -76,7 +76,3 @@ python3 pipeline_rq3.py --config combined
 ```
 
 ---
-
-## Citation
-
-Falle, E. (2026). *Creating datasets for domain-specific dialect solutions in automatic speech recognition*. Master's Thesis, St. Pölten University of Applied Sciences.
