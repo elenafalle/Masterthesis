@@ -1,14 +1,7 @@
 """
-src/wer_breakdown.py
-====================
 WER breakdown into substitutions, deletions and insertions.
 
 Integrates into the existing pipeline as Step 8.
-Reads existing predictions.jsonl files — no re-transcription needed.
-
-Outputs (written alongside predictions.jsonl):
-    wer_breakdown.json
-    <run_dir>/wer_breakdown_comparison.json
 """
 
 import json
