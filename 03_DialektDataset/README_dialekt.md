@@ -40,7 +40,7 @@ DialektDataset/
 | `utils.py` | Audio loading, WER computation, Input/Output helpers |
 | `whisper.py` | Whisper baseline evaluation |
 | `parakeet.py` | Parakeet baseline evaluation |
-| `error_clustering.py` | BERTScore-based error clustering — classifies transcription errors into massive, medical and acceptable (Step 7) |
+| `error_clustering.py` | BERTScore-based error clustering: classifies transcription errors into massive, medical and acceptable (Step 7) |
 | `wer_breakdown.py` | WER breakdown by substitutions, deletions and insertions (Step 8) |
 
 ---
