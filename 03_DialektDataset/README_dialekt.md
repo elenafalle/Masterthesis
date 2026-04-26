@@ -1,4 +1,4 @@
-# DialektDataset — Stage 3: Self-created Dialect Dataset
+# DialektDataset - Stage 3: Self-created Dialect Dataset
 
 This folder contains the pipeline for **Stage 3** of the evaluation procedure, corresponding to **RQ1 and RQ2** of the thesis.
 
