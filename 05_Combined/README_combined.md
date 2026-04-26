@@ -42,11 +42,6 @@ python3 pipeline.py --config voxtral
 python3 pipeline.py --config elevenlabs
 python3 pipeline.py --config combined
 
-# Run specific steps only
-python3 pipeline.py --config voxtral --step 3 4   # fine-tuning only
-python3 pipeline.py --config voxtral --step 5 6   # evaluation only
-python3 pipeline.py --config voxtral --step 7     # error clustering only
-
 # Continue existing run
 python3 pipeline.py --config voxtral --step 7 --run-dir results/run_xyz
 
