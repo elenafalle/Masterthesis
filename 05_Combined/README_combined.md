@@ -1,4 +1,4 @@
-# combined — Stage 5: Combined Dataset Experiments (RQ3)
+# combined - Stage 5: Combined Dataset Experiments (RQ3)
 
 This folder contains the pipeline for **Stage 5** of the evaluation procedure, corresponding to **RQ3** of the thesis.
 
