@@ -50,17 +50,35 @@ combined/
 
 ---
 
+## Pipeline Steps
+
+The pipeline is run three times - once per configuration - to enable comparison across augmentation strategies:
+
+| Step | Description |
+|------|-------------|
+| 0 | Merge datasets - run once per configuration before starting the pipeline |
+| 3 | Fine-tune Whisper (LoRA) on merged dataset |
+| 4 | Fine-tune Parakeet (LayerNorm) on merged dataset |
+| 5 | Evaluate fine-tuned Whisper on dialect test set |
+| 6 | Evaluate fine-tuned Parakeet on dialect test set |
+
+Steps 1 and 2 (baseline evaluation) are not included - baselines were established in Stage 3 and Stage 4.
+
+---
+
 ## Usage
 
 ```bash
-# Step 1: Merge datasets first
+# Configuration 1: Self-created + Voxtral
 python3 -m src.merge_datasets --config voxtral
-python3 -m src.merge_datasets --config elevenlabs
-python3 -m src.merge_datasets --config combined
-
-# Step 2: Run fine-tuning and evaluation
 python3 pipeline.py --config voxtral
+
+# Configuration 2: Self-created + ElevenLabs
+python3 -m src.merge_datasets --config elevenlabs
 python3 pipeline.py --config elevenlabs
+
+# Configuration 3: Self-created + Voxtral + ElevenLabs
+python3 -m src.merge_datasets --config combined
 python3 pipeline.py --config combined
 
 # Visualizations
