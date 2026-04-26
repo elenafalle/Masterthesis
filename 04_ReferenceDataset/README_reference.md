@@ -35,8 +35,8 @@ ReferenceDataset/
 |------|-------------|
 | `config.py` | Paths and hyperparameters |
 | `utils.py` | Audio loading, WER computation, Input/Output helpers |
-| `whisper.py` | Whisper baseline evaluation |
-| `parakeet.py` | Parakeet baseline evaluation |
+| `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
+| `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
 
 ---
 
