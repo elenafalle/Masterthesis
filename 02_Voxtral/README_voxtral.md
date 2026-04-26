@@ -41,3 +41,14 @@ Voxtral/
 python pipeline_quality_check.py --dataset voxtral
 
 ```
+
+---
+
+## Pipeline Steps
+
+| Step | Description |
+|------|-------------|
+| 1 | Baseline Whisper evaluation — computes WER on the full Voxtral dataset |
+| 2 | Baseline Parakeet evaluation — computes WER on the full Voxtral dataset |
+
+No fine-tuning is performed — this pipeline is used exclusively for data quality assessment.
