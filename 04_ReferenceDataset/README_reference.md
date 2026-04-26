@@ -40,19 +40,6 @@ ReferenceDataset/
 
 ---
 
-## Pipeline Steps
-
-| Step | Description |
-|------|-------------|
-| 1 | Baseline Whisper evaluation |
-| 2 | Baseline Parakeet evaluation |
-| 3 | Fine-tune Whisper (LoRA) |
-| 4 | Fine-tune Parakeet (LayerNorm) |
-| 5 | Evaluate fine-tuned Whisper |
-| 6 | Evaluate fine-tuned Parakeet |
-
----
-
 ## Usage
 
 ```bash
@@ -69,6 +56,19 @@ python3 pipeline.py --step 3 4
 python3 pipeline.py --step 5 6
 
 ```
+
+---
+
+## Pipeline Steps
+
+| Step | Description |
+|------|-------------|
+| 1 | Baseline Whisper evaluation |
+| 2 | Baseline Parakeet evaluation |
+| 3 | Fine-tune Whisper (LoRA) |
+| 4 | Fine-tune Parakeet (LayerNorm) |
+| 5 | Evaluate fine-tuned Whisper |
+| 6 | Evaluate fine-tuned Parakeet |
 
 ---
 
