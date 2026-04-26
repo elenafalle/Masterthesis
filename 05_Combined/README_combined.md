@@ -29,6 +29,27 @@ combined/
 
 ---
 
+## src/ — Helper Functions
+
+| File | Description |
+|------|-------------|
+| `config.py` | Paths and hyperparameters |
+| `utils.py` | Audio loading, WER computation, file saving and run directory management |
+| `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
+| `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
+| `error_clustering.py` | BERTScore-based error clustering — classifies transcription errors into massive, medical and acceptable |
+| `merge_datasets.py` | Merges self-created dialect dataset with synthetic data (Voxtral, ElevenLabs) |
+| `plot_rq3.py` | WER comparison chart across all RQ3 configurations |
+| `plot_rq3_clustering.py` | Error clustering stacked bar chart for RQ3 Parakeet configurations |
+
+## Other files
+
+| File | Description |
+|------|-------------|
+| `comparison_matrix.py` | Generates the A/B/C/D comparison matrix showing WER results across all four evaluation configurations (baseline/fine-tuned × dialect/reference) |
+
+---
+
 ## Usage
 
 ```bash
