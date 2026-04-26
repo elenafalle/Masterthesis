@@ -1,4 +1,4 @@
-# ElevenLabs — Stage 2: Baseline Quality Check
+# ElevenLabs - Stage 2: Baseline Quality Check
 
 This folder contains the pipeline for **Stage 2** of the evaluation procedure - the baseline WER quality check for the ElevenLabs synthetic dataset.
 
@@ -47,7 +47,7 @@ python pipeline_quality_check.py --dataset elevenlabs
 
 | Step | Description |
 |------|-------------|
-| 1 | Baseline Whisper evaluation — computes WER on the full ElevenLabs dataset |
-| 2 | Baseline Parakeet evaluation — computes WER on the full ElevenLabs dataset |
+| 1 | Baseline Whisper evaluation - computes WER on the full ElevenLabs dataset |
+| 2 | Baseline Parakeet evaluation - computes WER on the full ElevenLabs dataset |
 
 No fine-tuning is performed: this pipeline is used exclusively for data quality assessment.
