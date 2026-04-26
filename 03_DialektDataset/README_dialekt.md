@@ -38,7 +38,7 @@ DialektDataset/
 ``` 
 | File | Description |
 |------|-------------|
-| `config.py` | Paths and hyperparameters — adjust BASE_DIR if needed |
+| `config.py` | Paths and hyperparameters |
 | `utils.py` | Audio loading, WER computation, file saving and run directory management |
 | `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
 | `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
