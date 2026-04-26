@@ -51,28 +51,28 @@ The experimental pipeline follows five structured stages:
 ```bash
 # Stage 1: Audio quality check
 cd 01_AudioQuality
-python analyse_dataset.py          # self-created dataset
-python analyze_elevenlabs.py       # ElevenLabs dataset
-python analyse_voxtral.py          # Voxtral dataset
+python3 analyse_dataset.py          # self-created dataset
+python3 analyze_elevenlabs.py       # ElevenLabs dataset
+python3 analyse_voxtral.py          # Voxtral dataset
 
 # Stage 2: Baseline WER quality check
-cd 02_ElevenLabs && python pipeline_quality_check.py --dataset elevenlabs
-cd 02_Voxtral    && python pipeline_quality_check.py --dataset voxtral
+cd 02_ElevenLabs && python3 pipeline_quality_check.py --dataset elevenlabs
+cd 02_Voxtral    && python3 pipeline_quality_check.py --dataset voxtral
 
 # Stage 3: Dialect dataset (RQ1 & RQ2)
-cd 03_DialektDataset && python pipeline.py
+cd 03_DialektDataset && python3 pipeline.py
 
 # Stage 4: Reference dataset
-cd 04_ReferenceDataset && python pipeline.py
+cd 04_ReferenceDataset && python3 pipeline.py
 
 # Stage 5: Combined dataset (RQ3)
 cd 05_Combined
-python -m src.merge_datasets --config voxtral
-python -m src.merge_datasets --config elevenlabs
-python -m src.merge_datasets --config combined
-python pipeline_rq3.py --config voxtral
-python pipeline_rq3.py --config elevenlabs
-python pipeline_rq3.py --config combined
+python3 -m src.merge_datasets --config voxtral
+python3 -m src.merge_datasets --config elevenlabs
+python3 -m src.merge_datasets --config combined
+python3 pipeline_rq3.py --config voxtral
+python3 pipeline_rq3.py --config elevenlabs
+python3 pipeline_rq3.py --config combined
 ```
 
 ---
