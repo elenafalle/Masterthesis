@@ -14,7 +14,7 @@ To investigate whether augmenting the self-created dialect dataset with syntheti
 | `elevenlabs` | Self-created + ElevenLabs | 3,867 |
 | `combined` | Self-created + Voxtral + ElevenLabs | 6,499 |
 
-Only the training split for the dialect dataset is augmented with synthetic data - the eval and test splits remain unchanged to ensure a fair comparison.
+Only the training split of the dialect dataset is augmented with synthetic data - the eval and test splits remain unchanged to ensure a fair comparison.
 
 ---
 
