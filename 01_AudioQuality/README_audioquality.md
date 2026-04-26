@@ -45,15 +45,15 @@ Since synthetically generated data contains no real environmental noise, the SNR
 ```bash
 # Self-created dataset
 cd self-recorded-dialektdataset/
-python analyse_dataset.py
+python3 analyse_dataset.py
 
 # ElevenLabs dataset
 cd elevenlabs/
-python analyze_elevenlabs.py
+python3 analyze_elevenlabs.py
 
 # Voxtral dataset
 cd voxtral/
-python analyse_voxtral.py
+python3 analyse_voxtral.py
 ```
 
 ---
