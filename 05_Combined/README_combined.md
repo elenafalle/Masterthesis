@@ -34,7 +34,7 @@ combined/
 | File | Description |
 |------|-------------|
 | `config.py` | Paths and hyperparameters |
-| `utils.py` | Audio loading, WER computation, file saving and run directory management |
+| `utils.py` | Audio loading, WER computation, Input/Output helpers |
 | `whisper.py` | Whisper baseline evaluation and LoRA fine-tuning |
 | `parakeet.py` | Parakeet baseline evaluation and LayerNorm fine-tuning |
 | `error_clustering.py` | BERTScore-based error clustering — classifies transcription errors into massive, medical and acceptable |
