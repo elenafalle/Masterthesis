@@ -215,10 +215,11 @@ def main():
 
     log.info(f"Pipeline abgeschlossen. Ergebnisse: {run_dir}")
 
+     # --- Step 7: Error Clustering ---
+    if 7 in steps:
+        run_error_clustering(run_dir)
 
 if __name__ == "__main__":
     main()
   
-   # --- Step 7: Error Clustering ---
-    if 7 in steps:
-        run_error_clustering(run_dir)
+
