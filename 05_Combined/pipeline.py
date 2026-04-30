@@ -33,6 +33,11 @@ Nutzung:
     python3 pipeline.py --config voxtral      # Self-created + Voxtral
     python3 pipeline.py --config elevenlabs   # Self-created + ElevenLabs
     python3 pipeline.py --config combined     # Self-created + Voxtral + ElevenLabs
+    python3 pipeline.py --config voxtral --step 3 4      # Nur Fine-Tuning
+    python3 pipeline.py --config voxtral --step 5 6      # Nur Evaluation
+    python3 pipeline.py --config voxtral --step 7        # Nur Error Clustering
+    python3 pipeline.py --config voxtral --step 5 6 7    # Evaluation + Error Clustering
+    python3 pipeline.py --config voxtral --run-dir results/run_xyz  # Fortsetzen
 """
 
 import argparse
@@ -49,6 +54,7 @@ import src.config as cfg
 from src.config import SEED, WHISPER_HPARAMS, PARAKEET_HPARAMS, log, BASE_DIR
 from src.utils import create_run_dir, save_json
 from src import whisper, parakeet
+from src import error_clustering
 
 # ---------------------------------------------------------------------------
 # Konfigurationen — TRAIN_DIR pro Kombination
@@ -87,6 +93,42 @@ def print_comparison(all_results: dict, run_dir: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Step 7: Error Clustering
+# ---------------------------------------------------------------------------
+def run_error_clustering(run_dir: Path, config: str) -> None:
+    log.info("=" * 60)
+    log.info("  STEP 7: ERROR CLUSTERING")
+    log.info("=" * 60)
+
+    targets = {
+        "finetuned_whisper": (
+            run_dir / "whisper" / "finetuned" / "predictions.jsonl",
+            run_dir / "whisper" / "finetuned" / "error_clustering",
+            f"Fine-tuned Whisper ({config})",
+        ),
+        "finetuned_parakeet": (
+            run_dir / "parakeet" / "finetuned" / "predictions.jsonl",
+            run_dir / "parakeet" / "finetuned" / "error_clustering",
+            f"Fine-tuned Parakeet ({config})",
+        ),
+    }
+
+    summaries = {}
+    for key, (pred_path, out_dir, label) in targets.items():
+        if not pred_path.exists():
+            log.info(f"  [Skip] {label}: {pred_path} not found.")
+            continue
+        summary = error_clustering.run(pred_path, out_dir, label)
+        if summary:
+            summaries[key] = summary
+
+    if summaries:
+        error_clustering.compare(summaries, run_dir)
+    else:
+        log.warning("  Keine predictions.jsonl gefunden — Error Clustering übersprungen.")
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 def parse_args() -> argparse.Namespace:
@@ -101,8 +143,8 @@ def parse_args() -> argparse.Namespace:
         help="Trainingsdatensatz-Kombination.",
     )
     parser.add_argument(
-        "--step", type=int, nargs="+", choices=[3, 4, 5, 6],
-        help="Nur bestimmte Schritte (3=FT Whisper, 4=FT Parakeet, 5=Eval Whisper, 6=Eval Parakeet). Standard: alle.",
+        "--step", type=int, nargs="+", choices=[3, 4, 5, 6, 7],
+        help="Nur bestimmte Schritte (3=FT Whisper, 4=FT Parakeet, 5=Eval Whisper, 6=Eval Parakeet, 7=Error Clustering). Standard: alle.",
     )
     parser.add_argument(
         "--run-dir", type=str, default=None,
@@ -116,14 +158,14 @@ def parse_args() -> argparse.Namespace:
 # ---------------------------------------------------------------------------
 def main():
     args = parse_args()
-    steps = set(args.step) if args.step else {3, 4, 5, 6}
+    steps = set(args.step) if args.step else {3, 4, 5, 6, 7}
 
     # TRAIN_DIR auf gewählte Kombination setzen
     train_dir = CONFIGS[args.config]
     if not train_dir.exists():
         raise FileNotFoundError(
             f"Train-Ordner nicht gefunden: {train_dir}\n"
-            f"Bitte zuerst ausführen: python -m src.merge_datasets --config {args.config}"
+            f"Bitte zuerst ausführen: python3 -m src.merge_datasets --config {args.config}"
         )
     cfg.TRAIN_DIR = train_dir
     log.info(f"TRAIN_DIR gesetzt: {train_dir}")
@@ -137,7 +179,6 @@ def main():
         log.info(f"GPU: {torch.cuda.get_device_name(0)}")
     log.info(f"Schritte: {sorted(steps)}")
 
-    # Ausführliche config.json mit Hyperparametern, GPU-Info etc.
     save_json(run_dir / "config.json", {
         "timestamp": datetime.datetime.now().isoformat(),
         "python": sys.version,
@@ -210,16 +251,16 @@ def main():
                 run_dir / "parakeet" / "finetuned",
             )
 
+    # --- WER Comparison ---
     if all_results:
         print_comparison(all_results, run_dir)
 
+    # --- Step 7: Error Clustering ---
+    if 7 in steps:
+        run_error_clustering(run_dir, args.config)
+
     log.info(f"Pipeline abgeschlossen. Ergebnisse: {run_dir}")
 
-     # --- Step 7: Error Clustering ---
-    if 7 in steps:
-        run_error_clustering(run_dir)
 
 if __name__ == "__main__":
     main()
-  
-
