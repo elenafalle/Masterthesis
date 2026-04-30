@@ -218,3 +218,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+  
+   # --- Step 7: Error Clustering ---
+    if 7 in steps:
+        run_error_clustering(run_dir)
