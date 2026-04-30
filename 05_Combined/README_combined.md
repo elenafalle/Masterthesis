@@ -61,6 +61,7 @@ The pipeline is run three times - once per configuration - to enable comparison 
 | 4 | Fine-tune Parakeet (LayerNorm) on merged dataset |
 | 5 | Evaluate fine-tuned Whisper on dialect test set |
 | 6 | Evaluate fine-tuned Parakeet on dialect test set |
+| 7 | Error clustering with the BERTScore |
 
 Steps 1 and 2 (baseline evaluation) are not included - baselines were established in Stage 3 and Stage 4.
 
