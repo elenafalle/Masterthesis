@@ -10,7 +10,11 @@ Elena Falle, St. Pölten University of Applied Sciences, 2026
 This repository contains all code developed for the master's thesis. The study evaluates the impact of Austrian dialect variation on ASR performance in simulated emergency medical communication using two models - Whisper large-v3 and Parakeet TDT 0.6B v3.
 
 ---
+## Installation - Install all dependencies with:
 
+pip install -r requirements.txt
+
+---
 ## Evaluation Pipeline — Five Stages
 
 The experimental pipeline follows five structured stages:
