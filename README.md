@@ -1,8 +1,9 @@
-# Masterthesis - Dialect-Aware ASR for Medical Emergency Communication
-
-**"Creating datasets for domain-specific dialect solutions in automatic speech recognition"**
+# Masterthesis
+## Austrian Dialect in Medical ASR: A Pilot Study
+**Carinthian-Dominant Dataset Creation, Fine-Tuning and Evaluation of Whisper and Parakeet**
+```
 Elena Falle, St. Pölten University of Applied Sciences, 2026
-
+```
 ---
 
 ## Overview
